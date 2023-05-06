@@ -1,0 +1,19 @@
+{
+  "build": {
+    "preview": {
+      "ios": {
+        "simulator": true
+      }
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "admin@trimme.com.au",
+        "ascAppId": "6448097959",
+        "appleTeamId": "3ZFP6D76U4"
+      }
+    }
+  }
+}
