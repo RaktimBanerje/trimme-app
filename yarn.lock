@@ -3483,6 +3483,11 @@
   "resolved" "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.4.2.tgz"
   "version" "1.4.2"
 
+"expo-tracking-transparency@~3.0.1":
+  "integrity" "sha512-jM/wIEKGV6DlHKNcEWN39HRPosJhRcbCrmfgWVn5A3ILYsWWvM4pToKGz34BLmg/6iTsq+ONNzuQiwBxJJzbWA=="
+  "resolved" "https://registry.npmjs.org/expo-tracking-transparency/-/expo-tracking-transparency-3.0.3.tgz"
+  "version" "3.0.3"
+
 "expo-web-browser@^12.1.1":
   "integrity" "sha512-QdFnJKCKzWrvTIjFL2Yb6SlfyJWfBw1S1ceRyGtQSp4p7WFsvfbR6oJyucF04SJD7GshBluIlchrQK7XH/4EWQ=="
   "resolved" "https://registry.npmjs.org/expo-web-browser/-/expo-web-browser-12.1.1.tgz"

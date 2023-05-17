@@ -19,7 +19,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.thejagalapp.com"
+      "bundleIdentifier": "com.thejagalapp.com",
+      "buildNumber" : "4"
     },
     "android": {
       "adaptiveIcon": {

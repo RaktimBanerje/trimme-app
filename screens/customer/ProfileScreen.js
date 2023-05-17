@@ -1,6 +1,6 @@
 import { Image, Text } from '@rneui/base';
 import React from 'react'
-import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, Alert } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar } from '@rneui/base';
 import { AntDesign } from '@expo/vector-icons'; 
@@ -10,6 +10,7 @@ import axios from '../../utils';
 import { StoreContext } from '../../App';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RefreshControl } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 
 const ProfileScreen = ({navigation}) => {
@@ -52,6 +53,32 @@ const ProfileScreen = ({navigation}) => {
   React.useEffect(() => {
     loadData()
   }, [])
+
+  const deleteMyAccount = () => {
+    Alert.alert(  
+      '',
+      'Are you sure ?',  
+      [  
+          {  
+              text: 'Cancel',  
+              onPress: () => console.log('Cancel Pressed'),  
+              style: 'cancel',  
+          },  
+          {text: 'OK', onPress: () =>  {
+            axios.get("/user/delete-my-account")
+            .then(response => {
+              AsyncStorage.removeItem("user")
+              AsyncStorage.removeItem("token")
+              if(response.status === 200) {
+                  setState(state => ({...state, token: null, user: null}))
+                  navigation.navigate("EmailLogin")
+              }
+            })
+            .catch(console.log)
+          }},  
+      ]  
+  );  
+  }
 
   return (
    <SafeAreaView style={{flex: 1}} forceInset={{top: 'alaways'}}>
@@ -107,6 +134,13 @@ const ProfileScreen = ({navigation}) => {
                   <AntDesign name="logout" size={24} color="black" />
                   <Text style={{fontSize: 18, paddingHorizontal: 20}}>Log out</Text>
                   </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.itemContainer} activeOpacity={1} onPress={() => deleteMyAccount()}>
+                <View style={styles.itemContainerFirstElement} activeOpacity={1}>
+                  <Feather name="trash-2" size={24} color="black" />
+                  <Text style={{fontSize: 18, paddingHorizontal: 20, color: "red"}}>Delete My Account</Text>
+                </View>
               </TouchableOpacity>
           </View>
           </ScrollView>
